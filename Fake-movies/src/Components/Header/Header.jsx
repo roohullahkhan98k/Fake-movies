@@ -12,7 +12,7 @@ const Header = () => {
 
   return (
     <Box sx={{ display: "flex" }}>
-      <SideBar />
+      {/* <SideBar /> */}
 
       <Box sx={{ flexGrow: 1 }}>
         <AppBar

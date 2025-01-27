@@ -1,10 +1,10 @@
 import React from 'react';
+import MovieCard from '../../Components/test';
 
 const Home = () => {
   return (
-    <div>
-      <h1>Home</h1>
-    </div>
+    
+  <MovieCard />
   );
 };
 
