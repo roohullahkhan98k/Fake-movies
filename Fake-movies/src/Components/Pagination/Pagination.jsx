@@ -60,17 +60,16 @@ const PaginationComponent = ({ items, itemsPerPage, onPageChange }) => {
               style: {
                 textAlign: "center",
                 fontWeight: "bold",
-                fontSize: "18px",
+                fontSize: "12px",
               },
             }}
             placeholder="Items per page"
             type="number"
             sx={{
-              width: "80px",
+              width: "50px",
               textAlign: "center",
               fontWeight: "bold",
-              fontSize: "18px",
-              backgroundColor: "#fff",
+              fontSize: "12px",
               borderRadius: "4px",
               margin: "0 10px",
               padding: "5px",
