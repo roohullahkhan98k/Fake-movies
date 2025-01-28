@@ -27,7 +27,7 @@ const SideBar = () => {
           variant="h6"
           color="primary"
           position="absolute"
-          top="1.8rem"
+          top="1.6rem"
         >
           Fake Movies
         </Typography>

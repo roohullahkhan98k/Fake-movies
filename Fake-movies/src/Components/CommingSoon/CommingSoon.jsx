@@ -7,13 +7,12 @@ const ComingSoon = () => {
   return (
     <Box
       sx={{
-        height: "90vh",
+        height: "85vh",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
         textAlign: "center",
-        marginLeft:15,
       }}
     >
       <motion.div

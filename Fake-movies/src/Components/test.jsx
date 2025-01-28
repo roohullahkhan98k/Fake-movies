@@ -26,7 +26,7 @@ const Movies = () => {
             <CardMedia
               component="img"
               height="200"
-              image={movie.poster || 'https://via.placeholder.com/220x310?text=No+Image'}
+              image={movie.poster || 'roohi.jpg'}
               alt={movie.title}
             />
             <CardContent>

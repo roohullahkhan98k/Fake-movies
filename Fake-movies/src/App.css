@@ -3,3 +3,33 @@ margin: 0;
 padding: 0;
 }
 
+.layout {
+  display: grid;
+  grid-template-columns: 170px 1fr; 
+  grid-template-rows: auto 1fr auto; 
+  grid-template-areas:
+    "sidebar header"
+    "sidebar main"
+    "sidebar footer";
+  min-height: 100vh; 
+}
+
+.sidebar {
+  grid-area: sidebar;
+  position: sticky;
+  top: 0;
+}
+
+.main-content {
+  grid-area: main;
+  overflow-x: hidden; 
+  overflow-y: auto; 
+}
+
+Header {
+  grid-area: header;
+}
+
+footer {
+  grid-area: footer;
+}

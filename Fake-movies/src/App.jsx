@@ -1,22 +1,21 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Header,Footer,CommingSoon,SideBar} from "./Components";
-import { Home } from "./Pages/Home";
-import './App.css'
 
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Layout,CommingSoon } from './Components';
+import { Home } from './Pages/Home';
+import './App.css';
 
 const App = () => {
   return (
     <Router>
-      <SideBar />
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<CommingSoon />} />
-        <Route path="/services" element={<CommingSoon />} />
-        <Route path="/contact" element={<CommingSoon />} />
-      </Routes>
-      {/* <Footer /> */}
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<CommingSoon />} />
+          <Route path="/services" element={<CommingSoon />} />
+          <Route path="/contact" element={<CommingSoon />} />
+        </Routes>
+      </Layout>
     </Router>
   );
 };
