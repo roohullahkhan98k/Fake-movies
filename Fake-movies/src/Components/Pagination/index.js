@@ -1,1 +1,1 @@
-export {default as MoviePagination} from './Pagination';
+export {default as PaginationComponent} from './Pagination';

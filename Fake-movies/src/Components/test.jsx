@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Card, CardContent, CardMedia, Typography, Grid, Box } from "@mui/material";
-import PaginationComponent from "./Pagination/Pagination";
+import { PaginationComponent } from "./Pagination";
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
@@ -25,7 +25,7 @@ const Movies = () => {
   };
 
   return (
-    <Box sx={{ padding: "20px", display: "flex", justifyContent: "center", flexDirection: "column", alignItems: "center" }}>
+    <Box sx={{ padding: "20px",marginTop:"8rem", display: "flex", justifyContent: "center", flexDirection: "column", alignItems: "center" }}>
       <Grid container spacing={2} justifyContent="center">
         {currentMovies.map((movie) => (
           <Grid item xs={12} sm={6} md={4} key={movie.id}>
