@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Pagination, IconButton, TextField, Box, Typography } from "@mui/material";
+import {
+  Pagination,
+  IconButton,
+  TextField,
+  Box,
+  Typography,
+} from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 
@@ -11,23 +17,24 @@ const PaginationComponent = ({ items, itemsPerPage, onPageChange }) => {
   const indexOfFirstItem = indexOfLastItem - currentItemsPerPage;
   const currentItems = items.slice(indexOfFirstItem, indexOfLastItem);
 
-  const handlePageChange = (event, value) => {
-    setCurrentPage(value); 
-    onPageChange(currentItems); 
+  const handlePageChange = (value) => {
+    setCurrentPage(value);
+    onPageChange(currentItems);
   };
 
   const handleIncreaseItemsPerPage = () => {
-    setCurrentItemsPerPage(prev => prev + 1); 
+    if (currentItemsPerPage >= items.length) return;
+    setCurrentItemsPerPage((prev) => prev + 1);
     setCurrentPage(1);
   };
 
   const handleDecreaseItemsPerPage = () => {
-    setCurrentItemsPerPage(prev => (prev > 1 ? prev - 1 : prev)); 
-    setCurrentPage(1); 
+    setCurrentItemsPerPage((prev) => (prev > 1 ? prev - 1 : prev));
+    setCurrentPage(1);
   };
 
   useEffect(() => {
-    onPageChange(currentItems); 
+    onPageChange(currentItems);
   }, [currentPage, currentItemsPerPage, items]);
 
   return (
@@ -41,7 +48,7 @@ const PaginationComponent = ({ items, itemsPerPage, onPageChange }) => {
           border: "1px solid #ddd",
           borderRadius: "8px",
           padding: "10px 20px",
-         margin: "20px 0",
+          margin: "20px 0",
         }}
       >
         <Typography variant="body2" sx={{ marginBottom: "10px" }}>

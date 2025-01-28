@@ -11,9 +11,6 @@ const Header = () => {
     <AppBar
       position="sticky"
       color="primary"
-      sx={{
-        zIndex: (theme) => theme.zIndex.drawer + 1,
-      }}
     >
       <Toolbar sx={{ justifyContent: "center" }}>
         <Box>
