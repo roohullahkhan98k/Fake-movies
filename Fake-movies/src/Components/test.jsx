@@ -20,12 +20,13 @@ const Movies = () => {
     fetchMovies();
   }, []);
 
-  const handlePageChange = (currentItems) => {
+  const updateMovies = (currentItems) => {
     setCurrentMovies(currentItems);
   };
 
   return (
     <Box sx={{ padding: "20px",marginTop:"8rem", display: "flex", justifyContent: "center", flexDirection: "column", alignItems: "center" }}>
+          <Typography variant="h3" marginBottom={2}>New Movies</Typography>
       <Grid container spacing={2} justifyContent="center">
         {currentMovies.map((movie) => (
           <Grid item xs={12} sm={6} md={4} key={movie.id}>
@@ -50,7 +51,7 @@ const Movies = () => {
       <PaginationComponent
         items={movies}
         itemsPerPage={6}
-        onPageChange={handlePageChange}
+        onPageChange={updateMovies}
       />
     </Box>
   );

@@ -7,7 +7,7 @@ const Footer = () => {
     <Box
       sx={{
         width: "100%",
-        color: "primary.main",
+        color: "secondary.main",
         padding: 2,
         textAlign: "center",
       }}

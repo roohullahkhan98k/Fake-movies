@@ -25,7 +25,7 @@ const SideBar = () => {
       >
         <Typography
           variant="h6"
-          color="primary"
+          color="secondary"
           position="absolute"
           top="1.6rem"
         >

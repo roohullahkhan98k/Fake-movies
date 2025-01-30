@@ -10,7 +10,7 @@ const Header = () => {
   return (
     <AppBar
       position="sticky"
-      color="primary"
+      color="secondary"
     >
       <Toolbar sx={{ justifyContent: "center" }}>
         <Box>

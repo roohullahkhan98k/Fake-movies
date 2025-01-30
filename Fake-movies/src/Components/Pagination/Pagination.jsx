@@ -19,7 +19,7 @@ const PaginationComponent = ({ items, itemsPerPage, onPageChange }) => {
   };
 
   const handleIncreaseItemsPerPage = () => { 
-    if (currentItemsPerPage >= items.length) return;  
+    if (currentItemsPerPage > items.length) return;  
     setCurrentItemsPerPage(prev => prev + 1); 
     setCurrentPage(1);
   };
@@ -53,7 +53,7 @@ const PaginationComponent = ({ items, itemsPerPage, onPageChange }) => {
         </Typography>
 
         <Box sx={{ display: "flex", alignItems: "center" }}>
-          <IconButton onClick={handleDecreaseItemsPerPage} color="primary">
+          <IconButton onClick={handleDecreaseItemsPerPage} color="secondary">
             <RemoveIcon />
           </IconButton>
 
@@ -80,7 +80,7 @@ const PaginationComponent = ({ items, itemsPerPage, onPageChange }) => {
             }}
           />
 
-          <IconButton onClick={handleIncreaseItemsPerPage} color="primary">
+          <IconButton onClick={handleIncreaseItemsPerPage} color="secondary">
             <AddIcon />
           </IconButton>
         </Box>
@@ -90,7 +90,7 @@ const PaginationComponent = ({ items, itemsPerPage, onPageChange }) => {
         count={Math.ceil(items.length / currentItemsPerPage)}
         page={currentPage}
         onChange={(e, value) => handlePageChange(value)}
-        color="primary"
+        color="secondary"
         sx={{ display: "flex", justifyContent: "center" }}
       />
     </div>
