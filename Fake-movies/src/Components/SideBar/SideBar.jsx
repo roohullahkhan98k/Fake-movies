@@ -10,7 +10,12 @@ const SideBar = () => {
       sx={{
         width: drawerWidth,
         flexShrink: 1,
-        [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: "border-box" },
+        [`& .MuiDrawer-paper`]: {
+          width: drawerWidth,
+          boxSizing: "border-box",
+          backgroundColor: "#1d1d1d",
+          color: "white",
+        },
       }}
     >
       <Toolbar />
@@ -23,12 +28,7 @@ const SideBar = () => {
           my: 2,
         }}
       >
-        <Typography
-          variant="h6"
-          color="secondary"
-          position="absolute"
-          top="1.6rem"
-        >
+        <Typography variant="h6" color="white" position="absolute" top="1.6rem">
           Fake Movies
         </Typography>
       </Box>

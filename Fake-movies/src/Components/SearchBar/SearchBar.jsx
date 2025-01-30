@@ -13,11 +13,11 @@ const SearchBar = ({ onSearch }) => {
   return (
     <Box
       sx={{
-        marginBottom: "20px",
-        width: "100%",
+        width: "95%",
         display: "flex",
-        justifyContent: "flex-end", // Align to the right
-        paddingRight: "20px", // Add spacing from the right
+        justifyContent: "flex-end", 
+        position: "relative",
+        top: "7vh",
       }}
     >
       <TextField
@@ -28,11 +28,11 @@ const SearchBar = ({ onSearch }) => {
         sx={{
           width: "30%", 
           borderRadius: "8px", 
-          backgroundColor: "#f5f5f5", 
-          boxShadow: "2px 2px 8px rgba(0, 0, 0, 0.1)", 
+          backgroundColor: "#1d1d1d", 
+          input: { color: "white" },
           "& .MuiOutlinedInput-root": {
             "& fieldset": {
-              borderColor: "#9e9e9e", 
+              borderColor: "white", 
             },
             "&:hover fieldset": {
               borderColor: "#1976d2", 

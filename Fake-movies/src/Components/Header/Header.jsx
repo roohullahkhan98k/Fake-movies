@@ -10,7 +10,7 @@ const Header = () => {
   return (
     <AppBar
       position="sticky"
-      color="secondary"
+      sx={{ backgroundColor: "#1d1d1d" }} 
     >
       <Toolbar sx={{ justifyContent: "center" }}>
         <Box>
@@ -19,10 +19,11 @@ const Header = () => {
               key={route}
               component={Link}
               to={route}
-              color="inherit"
               sx={{
                 mx: 1,
-                borderBottom: isActive(route) ? "2px solid white" : "none",
+                color: isActive(route) ? "white" : "#919191", 
+                borderBottom: isActive(route),
+                transition: "color 0.3s", 
               }}
             >
               {name}

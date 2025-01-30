@@ -7,15 +7,14 @@ const Footer = () => {
     <Box
       sx={{
         width: "100%",
-        color: "secondary.main",
-        padding: 2,
+         backgroundColor: "#1d1d1d",
         textAlign: "center",
       }}
     >
-      <Typography color="black" variant="body2">
+      <Typography color="white" variant="body2">
         © 2025 Fake Movies | All Rights Reserved
       </Typography>
-      <Typography color = "black" variant="body2">Privacy Policy | Terms of Service</Typography>
+      <Typography color = "white" variant="body2">Privacy Policy | Terms of Service</Typography>
     </Box>
   );
 };
