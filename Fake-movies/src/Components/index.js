@@ -6,3 +6,5 @@ export {default as Layout} from './Layout/Layout';
 export {default as MovieCard} from './MovieCard/MovieCard'
 export {default as PaginationComponent} from './Pagination/Pagination'
 export {default as SearchBar} from './SearchBar/SearchBar'
+// export {default as Sorting} from './Sorting/Sorting'
+export {default as CenteredContainer} from '../Components/Layout/CenteredContainer/CenteredContainer'
