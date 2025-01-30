@@ -2,7 +2,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Layout,CommingSoon } from './Components';
-import { Home } from './Pages/Home';
+import MoviesList from './Pages/MovieList/MoviesList';
 import './App.css';
 
 const App = () => {
@@ -10,7 +10,7 @@ const App = () => {
     <Router future={{ v7_relativeSplatPath: true, v7_startTransition: true }}>
       <Layout>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<MoviesList />} />
           <Route path="/about" element={<CommingSoon />} />
           <Route path="/services" element={<CommingSoon />} />
           <Route path="/contact" element={<CommingSoon />} />
