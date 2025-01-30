@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Pagination, IconButton, TextField, Box, Typography } from "@mui/material";
-import AddIcon from "@mui/icons-material/Add";
-import RemoveIcon from "@mui/icons-material/Remove";
+import { Pagination, Box  } from "@mui/material";
 
 const PaginationComponent = ({ items, itemsPerPage, onPageChange }) => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -12,88 +10,24 @@ const PaginationComponent = ({ items, itemsPerPage, onPageChange }) => {
   const currentItems = items.slice(indexOfFirstItem, indexOfLastItem);
 
 
-
   const handlePageChange = ( value) => {
     setCurrentPage(value); 
     onPageChange(currentItems); 
   };
 
-  const handleIncreaseItemsPerPage = () => { 
-    if (currentItemsPerPage > items.length) return;  
-    setCurrentItemsPerPage(prev => prev + 1); 
-    setCurrentPage(1);
-  };
-  
-
-  const handleDecreaseItemsPerPage = () => {
-    setCurrentItemsPerPage(prev => (prev > 1 ? prev - 1 : prev)); 
-    setCurrentPage(1); 
-  };
 
   useEffect(() => {
     onPageChange(currentItems); 
   }, [currentPage, currentItemsPerPage, items]);
 
   return (
-    <div>
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          border: "1px solid #ddd",
-          borderRadius: "8px",
-          padding: "10px 20px",
-         margin: "20px 0",
-        }}
-      >
-        <Typography variant="body2" sx={{ marginBottom: "10px" }}>
-          Items per page
-        </Typography>
-
-        <Box sx={{ display: "flex", alignItems: "center" }}>
-          <IconButton onClick={handleDecreaseItemsPerPage} color="secondary">
-            <RemoveIcon />
-          </IconButton>
-
-          <TextField
-            value={currentItemsPerPage}
-            onChange={(e) => setCurrentItemsPerPage(Number(e.target.value))}
-            inputProps={{
-              style: {
-                textAlign: "center",
-                fontWeight: "bold",
-                fontSize: "12px",
-              },
-            }}
-            placeholder="Items per page"
-            type="number"
-            sx={{
-              width: "50px",
-              textAlign: "center",
-              fontWeight: "bold",
-              fontSize: "12px",
-              borderRadius: "4px",
-              margin: "0 10px",
-              padding: "5px",
-            }}
-          />
-
-          <IconButton onClick={handleIncreaseItemsPerPage} color="secondary">
-            <AddIcon />
-          </IconButton>
-        </Box>
-      </Box>
-
       <Pagination
         count={Math.ceil(items.length / currentItemsPerPage)}
         page={currentPage}
         onChange={(e, value) => handlePageChange(value)}
         color="secondary"
-        sx={{ display: "flex", justifyContent: "center" }}
+        sx={{ display: "flex", justifyContent: "center", marginTop: "2rem" }}
       />
-    </div>
   );
 };
 

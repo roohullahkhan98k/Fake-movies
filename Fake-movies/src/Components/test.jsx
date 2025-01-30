@@ -25,7 +25,7 @@ const Movies = () => {
   };
 
   return (
-    <Box sx={{ padding: "20px",marginTop:"8rem", display: "flex", justifyContent: "center", flexDirection: "column", alignItems: "center" }}>
+    <Box sx={{ padding: "20px",marginTop:"5rem", display: "flex", justifyContent: "center", flexDirection: "column", alignItems: "center" }}>
           <Typography variant="h3" marginBottom={2}>New Movies</Typography>
       <Grid container spacing={2} justifyContent="center">
         {currentMovies.map((movie) => (
