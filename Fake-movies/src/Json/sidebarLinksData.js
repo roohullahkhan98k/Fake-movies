@@ -1,6 +1,8 @@
-const sidebarLinksData = [
-    {  "name": "Sorting" },
-    {  "name": "Filtering" },
-    {  "name": "Chat" }
-  ]
-  export default sidebarLinksData;
+const navigationLinks = [
+  { "name": "Trending" },
+  { "name": "Discover" },
+  { "name": "Community" },
+  { "name": "Support" }
+];
+
+export default navigationLinks;
