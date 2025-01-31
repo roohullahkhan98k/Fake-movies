@@ -2,21 +2,15 @@ import React, { useState } from "react";
 import { CustomTextField } from "../../Common/TextField";
 
 const SearchBar = ({ onSearch }) => {
-  const [searchQuery, setSearchQuery] = useState(""); // Local state for the search query
+  const [query, setQuery] = useState("");
 
   const handleSearch = (event) => {
-    const query = event.target.value;
-    setSearchQuery(query); // Update local state for search query
-    onSearch(query); // Pass the search query to the parent via onSearch
+    const value = event.target.value;
+    setQuery(value);
+    onSearch(value);
   };
 
-  return (
-    <CustomTextField
-      value={searchQuery}
-      onChange={handleSearch}
-      placeholder="Search movies..."
-    />
-  );
+  return <CustomTextField value={query} onChange={handleSearch} placeholder="Search movies..." />;
 };
 
 export default SearchBar;

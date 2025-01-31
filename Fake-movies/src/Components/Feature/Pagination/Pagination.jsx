@@ -3,10 +3,9 @@ import { Pagination } from "@mui/material";
 
 const PaginationComponent = ({ items, itemsPerPage, onPageChange }) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [currentItemsPerPage, setCurrentItemsPerPage] = useState(itemsPerPage);
 
-  const indexOfLastItem = currentPage * currentItemsPerPage;
-  const indexOfFirstItem = indexOfLastItem - currentItemsPerPage;
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = items.slice(indexOfFirstItem, indexOfLastItem);
 
   const handlePageChange = (value) => {
@@ -16,11 +15,11 @@ const PaginationComponent = ({ items, itemsPerPage, onPageChange }) => {
 
   useEffect(() => {
     onPageChange(currentItems);
-  }, [currentPage, currentItemsPerPage, items]);
+  }, [currentPage, items]); 
 
   return (
     <Pagination
-      count={Math.ceil(items.length / currentItemsPerPage)}
+      count={Math.ceil(items.length / itemsPerPage)}
       page={currentPage}
       onChange={(e, value) => handlePageChange(value)}
       sx={{

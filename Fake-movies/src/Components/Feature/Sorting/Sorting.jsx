@@ -5,10 +5,11 @@ import { CustomButton } from "../../Common/Button";
 import { CustomTextField } from "../../Common/TextField";
 import { sortingFields, sortOrders } from "../../../Json/sortingOptions";
 
-const Sorting = ({ movies, setMovies }) => {
+const Sorting = ({ movies, setMovies, resetSorting }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [sortField, setSortField] = useState("name");
   const [sortOrder, setSortOrder] = useState("asc");
+  const [isSorted, setIsSorted] = useState(false);
 
   const handleSort = () => {
     const sortedMovies = [...movies].sort((a, b) => {
@@ -32,7 +33,13 @@ const Sorting = ({ movies, setMovies }) => {
     });
 
     setMovies(sortedMovies);
+    setIsSorted(true); // Set sorting as applied
     setIsOpen(false);
+  };
+
+  const handleRemoveSorting = () => {
+    resetSorting();
+    setIsSorted(false); 
   };
 
   return (
@@ -61,6 +68,11 @@ const Sorting = ({ movies, setMovies }) => {
         </Box>
       ) : (
         <CustomButton onClick={() => setIsOpen(true)}>Sorting</CustomButton>
+      )}
+
+    
+      {isSorted && (
+        <CustomButton onClick={handleRemoveSorting}  isRemoveButton={true} >Remove Sorting</CustomButton>
       )}
     </Box>
   );
