@@ -7,7 +7,7 @@ import { sortingFields, sortOrders } from "../../../Json/sortingOptions";
 
 const Sorting = ({ movies, setMovies }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [sortField, setSortField] = useState("");
+  const [sortField, setSortField] = useState("name");
   const [sortOrder, setSortOrder] = useState("asc");
 
   const handleSort = () => {
@@ -42,7 +42,6 @@ const Sorting = ({ movies, setMovies }) => {
           <CustomTextField
             value={sortField}
             onChange={(e) => setSortField(e.target.value)}
-            placeholder="Sort by..."
             select
             options={sortingFields} 
           />

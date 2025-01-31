@@ -1,0 +1,4 @@
+const genres = ["Action", "Drama", "Comedy", "Horror"];
+const ratings = ["5+", "7+", "9+"];
+
+export { genres, ratings };

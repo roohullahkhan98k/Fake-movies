@@ -1,55 +1,58 @@
 import React, { useState } from "react";
-import { Box, IconButton, MenuItem, Select } from "@mui/material";
-import CloseIcon from "@mui/icons-material/Close";
+import { Box } from "@mui/material";
 import { CustomButton } from "../../Common/Button";
-
-const Filtering = ({ onFilter }) => {
+import { FilterModal } from "../../Common/modal";
+import { genres,ratings } from "../../../Json/filteringOptions";
+const Filtering = ({ movies, setCurrentMovies }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedGenre, setSelectedGenre] = useState("");
+  const [year, setYear] = useState("");
+  const [selectedGenres, setSelectedGenres] = useState([]);
+  const [selectedRating, setSelectedRating] = useState("");
 
-  const handleApplyFilter = () => {
-    onFilter(selectedGenre); // Pass the selected genre to the parent component
-    setIsOpen(false); // Close the filter dropdown
+  const handleApplyFilters = () => {
+    const filteredMovies = applyFilters(movies);
+    setCurrentMovies(filteredMovies);
+    setIsOpen(false);
+  };
+
+  const applyFilters = (movies) => {
+    let filtered = [...movies];
+
+    if (selectedGenres.length > 0) {
+      filtered = filtered.filter((movie) =>
+        selectedGenres.every((genre) => movie.genre.includes(genre))
+      );
+    }
+
+    if (selectedRating) {
+      const minRating = parseFloat(selectedRating);
+      filtered = filtered.filter((movie) => movie.rating >= minRating);
+    }
+
+    if (year) {
+      filtered = filtered.filter((movie) => movie.year === parseInt(year));
+    }
+
+    return filtered;
   };
 
   return (
-    <Box sx={{ mt: 2, mb: 2, height: "56px" }}>
-      {isOpen ? (
-        <Box display="flex" alignItems="center" gap={2}>
-          {/* Genre Dropdown */}
-          <Select
-            value={selectedGenre}
-            onChange={(e) => setSelectedGenre(e.target.value)}
-            displayEmpty
-            sx={{
-              width: "10rem",
-              backgroundColor: "#1d1d1d",
-              color: "white",
-              "& .MuiOutlinedInput-notchedOutline": { borderColor: "white" },
-              "& .MuiSelect-icon": { color: "white" }, // White dropdown arrow
-            }}
-          >
-            <MenuItem value="" disabled>
-              Select Genre
-            </MenuItem>
-            <MenuItem value="Drama">Drama</MenuItem>
-            <MenuItem value="Action">Action</MenuItem>
-            <MenuItem value="Comedy">Comedy</MenuItem>
-            <MenuItem value="Sci-Fi">Sci-Fi</MenuItem>
-            <MenuItem value="Horror">war</MenuItem>
-          </Select>
+    <Box sx={{ mt: 2, mb: 2 }}>
+      <CustomButton onClick={() => setIsOpen(true)}>Filter</CustomButton>
 
-          {/* Apply Button */}
-          <CustomButton onClick={handleApplyFilter}>Apply</CustomButton>
-
-          {/* Close Button */}
-          <IconButton onClick={() => setIsOpen(false)} color="error">
-            <CloseIcon />
-          </IconButton>
-        </Box>
-      ) : (
-        <CustomButton onClick={() => setIsOpen(true)}>Filtering</CustomButton>
-      )}
+      <FilterModal
+        isOpen={isOpen}
+        handleClose={() => setIsOpen(false)}
+        year={year}
+        setYear={setYear}
+        selectedGenres={selectedGenres}
+        setSelectedGenres={setSelectedGenres}
+        selectedRating={selectedRating}
+        setSelectedRating={setSelectedRating}
+        applyFilters={handleApplyFilters}
+        genres={genres}  
+        ratings={ratings} 
+      />
     </Box>
   );
 };
