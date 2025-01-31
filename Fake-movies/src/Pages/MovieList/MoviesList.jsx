@@ -13,32 +13,24 @@ import { fetchMovies } from "../../api/apiService";
 const MoviesList = () => {
   const [movies, setMovies] = useState([]); 
   const [currentMovies, setCurrentMovies] = useState([]); 
-  const [filterRemoved, setFilterRemoved] = useState(false);
+  const [itemsPerPage] = useState(5);
 
   const loadMovies = async (searchQuery) => {
     const data = await fetchMovies(searchQuery); 
     setMovies(data); 
-    setCurrentMovies(data); 
+    setCurrentMovies(data.slice(0, itemsPerPage)); 
   };
 
   useEffect(() => {
     loadMovies(""); 
   }, []);
 
-  useEffect(() => {
-    if (filterRemoved) {
-      loadMovies(""); 
-      setFilterRemoved(false);
-    }
-  }, [filterRemoved]);
-
   const handleSearch = (searchQuery) => {
     loadMovies(searchQuery);
   };
 
   const resetFilteringAndSorting = () => {
-    setCurrentMovies(movies); 
-    setFilterRemoved(true);
+    setCurrentMovies(movies.slice(0, itemsPerPage)); 
   };
 
   return (
@@ -55,7 +47,11 @@ const MoviesList = () => {
           <MovieCard key={movie.id} movie={movie} />
         ))}
       </Grid>
-      <PaginationComponent items={movies} itemsPerPage={5} onPageChange={setCurrentMovies} />
+      <PaginationComponent 
+        items={movies} 
+        itemsPerPage={itemsPerPage} 
+        onPageChange={setCurrentMovies} 
+      />
     </CenteredContainer>
   );
 };
