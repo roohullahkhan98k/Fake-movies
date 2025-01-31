@@ -35,7 +35,7 @@ const FilterModal = ({
     const newRatings = [...selectedRating];
   
     if (newRatings.includes(rating)) {
-      
+      //same i am doing here
       setSelectedRating(newRatings.filter((r) => r !== rating));
     } else {
 

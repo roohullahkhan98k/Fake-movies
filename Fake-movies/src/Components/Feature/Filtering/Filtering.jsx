@@ -3,6 +3,8 @@ import { Box } from "@mui/material";
 import { CustomButton } from "../../Common/Button";
 import { FilterModal } from "../../Common/modal";
 import { genres,ratings } from "../../../Json/filteringOptions";
+
+
 const Filtering = ({ movies, setCurrentMovies }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [year, setYear] = useState("");
