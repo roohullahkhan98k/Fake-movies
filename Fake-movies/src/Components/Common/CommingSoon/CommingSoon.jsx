@@ -2,7 +2,7 @@ import React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { motion } from "framer-motion";
-import CenteredContainer from "../Layout/CenteredContainer/CenteredContainer";
+import CenteredContainer from "../CenteredContainer/CenteredContainer";
 
 const ComingSoon = () => {
   return (

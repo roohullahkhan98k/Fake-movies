@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Card, CardMedia, Typography, Grid, Box, Button } from "@mui/material";
-import bg from "../../assets/bg.jpg";
+import bg from "../../../assets/bg.jpg";
 
 const MovieCard = ({ movie }) => {
   const [hovered, setHovered] = useState(false);

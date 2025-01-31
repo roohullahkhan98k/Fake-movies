@@ -6,6 +6,7 @@ import MoviesList from './Pages/MovieList/MoviesList';
 import './App.css';
 
 const App = () => {
+  
   return (
     <Router future={{ v7_relativeSplatPath: true, v7_startTransition: true }}>
       <Layout>

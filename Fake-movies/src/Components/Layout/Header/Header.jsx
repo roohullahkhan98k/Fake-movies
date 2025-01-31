@@ -1,7 +1,7 @@
 import React from "react";
 import { AppBar, Toolbar, Button, Box } from "@mui/material";
 import { Link, useLocation } from "react-router-dom";
-import navLinksData from "../../Json/navLinks";
+import navLinksData from "../../../Json/navLinks";
 
 const Header = () => {
   const location = useLocation();
