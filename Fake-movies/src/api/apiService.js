@@ -1,9 +1,13 @@
 import axios from "axios";
 import { MOVIES_API } from "../config/apiConfig";
 
-export const fetchMovies = async (query = "") => {
+export const fetchMovies = async (query = "", sortField = "", sortOrder = "",) => {
   try {
-    const url = query ? `${MOVIES_API}?search=${query}` : MOVIES_API;
+    let url = `${MOVIES_API}?limit=20`;
+    
+    if (query) url += `&search=${query}`;
+    if (sortField && sortOrder) url += `&sort=${sortField}&order=${sortOrder}`;
+    
     const response = await axios.get(url);
     return response.data;
   } catch (error) {
